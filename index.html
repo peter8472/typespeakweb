@@ -3,22 +3,87 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel=stylesheet type="text/css" href="style.css"/>
     <title></title>
 </head>
 <body>
     <button id="clear" >CLEAR</button>
+    <button id="increase">+</button>
+    <button id = "decrease">-</button>
+    <button id = "testbutton">testbtton</button>
     <div>
     <textarea id="mytext"></textarea>
-    </div>    <script>
+    </div>
+    <script>
+        function sizeButton(event) {
+            console.log(event);
+            mytext = document.getElementById("mytext");
+            current = window.getComputedStyle(mytext);
+            blah = current.fontSize;
+            unitsize = blah.match("[0-9]+");
+            unitname = blah.match("[a-zA-Z]+");
+            console.log("current fontsize: " + unitsize);
+            console.log("current fontname: " + unitname);
+            unitsize = parseInt(unitsize) + 1;
+            newsize = unitsize+unitname;
+            mytext.style.fontSize = newsize;
+            localStorage.setItem("fontsize",newsize );
+            mytext.style.position = "absolute"
+
+        }
+        window.addEventListener("load", function() {
+            text = document.getElementById("mytext");
+            size = localStorage.getItem("fontsize");
+            if (size != null) 
+                text.style.fontSize = size;
+        });
+        but4 = document.getElementById("testbutton");
+        but4.addEventListener("click", sizeButton);
+        
         but = document.getElementById("clear")
             but.addEventListener("click", function () {
                 console.log("called");
                 text = document.getElementById("mytext");
                 text.value = "";
                 console.log(text);
-            })
-</script>
+            });
+        but2 = document.getElementById("increase");
+        but2.addEventListener("click", function () {
+            mytext = document.getElementById("mytext");
+            current = window.getComputedStyle(mytext);
+            blah = current.fontSize;
+            unitsize = blah.match("[0-9]+");
+            unitname = blah.match("[a-zA-Z]+");
+            console.log("current fontsize: " + unitsize);
+            console.log("current fontname: " + unitname);
+            unitsize = parseInt(unitsize) + 1;
+            newsize = unitsize+unitname;
+            mytext.style.fontSize = newsize;
+            localStorage.setItem("fontsize",newsize );
+            mytext.style.position = "absolute"
+        });
+        but3   = document.getElementById("decrease");
+        but3.addEventListener("click", function () {
+            mytext = document.getElementById("mytext");
+            current = window.getComputedStyle(mytext);
+            blah = current.fontSize;
+            unitsize = blah.match("[0-9]+");
+            unitname = blah.match("[a-zA-Z]+");
+            console.log("current fontsize: " + unitsize);
+            console.log("current fontname: " + unitname);
+            unitsize = parseInt(unitsize) - 1;
+            
+            newsize = unitsize+unitname;
+            mytext.style.fontSize = newsize;
+            localStorage.setItem("fontsize",newsize );
+            mytext.style.right= "0";
+            mytext.style.position = "absolute"
+            
+        })
+
+</script>
+
 </body>
 
 </html>
