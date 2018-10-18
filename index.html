@@ -12,34 +12,55 @@
     <button id="increase">+</button>
     <button id = "decrease">-</button>
     <button id = "testbutton">testbtton</button>
-    <div>
+    <div id="tdiv">
     <textarea id="mytext"></textarea>
     </div>
     <script>
         function sizeButton(event) {
-            console.log(event);
+            
             mytext = document.getElementById("mytext");
+            clone = mytext.cloneNode();
+            tdiv = document.getElementById("tdiv");
             current = window.getComputedStyle(mytext);
             blah = current.fontSize;
             unitsize = blah.match("[0-9]+");
             unitname = blah.match("[a-zA-Z]+");
-            console.log("current fontsize: " + unitsize);
-            console.log("current fontname: " + unitname);
-            unitsize = parseInt(unitsize) + 1;
+            //console.log("current fontsize: " + unitsize);
+            //console.log("current fontname: " + unitname);
+            //console.log(event.target.id)
+            if (event.target.id === "increase")
+                unitsize = parseInt(unitsize) + 1;
+            else if (event.target.id === "decrease")
+                unitsize = parseInt(unitsize) - 1;
+            else
+                console.log("error on target id:" + event.target.id);
+                    
+
+
+
             newsize = unitsize+unitname;
-            mytext.style.fontSize = newsize;
+            //tdiv.removeChild(mytext);
+            //clone.style.fontSize = newsize;
+            //clone.style.position = "absolute"
+            //tdiv.appendChild(clone);
             localStorage.setItem("fontsize",newsize );
+            mytext.style.fontSize = newsize;
+            mytext.style.width="100%";
             mytext.style.position = "absolute"
+            
+
+            
+            console.log(clone.offsetHeight);
 
         }
         window.addEventListener("load", function() {
             text = document.getElementById("mytext");
             size = localStorage.getItem("fontsize");
-            if (size != null) 
+            if (size != null) {
                 text.style.fontSize = size;
+                text.style.width="100%";
+            }
         });
-        but4 = document.getElementById("testbutton");
-        but4.addEventListener("click", sizeButton);
         
         but = document.getElementById("clear")
             but.addEventListener("click", function () {
@@ -49,38 +70,10 @@
                 console.log(text);
             });
         but2 = document.getElementById("increase");
-        but2.addEventListener("click", function () {
-            mytext = document.getElementById("mytext");
-            current = window.getComputedStyle(mytext);
-            blah = current.fontSize;
-            unitsize = blah.match("[0-9]+");
-            unitname = blah.match("[a-zA-Z]+");
-            console.log("current fontsize: " + unitsize);
-            console.log("current fontname: " + unitname);
-            unitsize = parseInt(unitsize) + 1;
-            newsize = unitsize+unitname;
-            mytext.style.fontSize = newsize;
-            localStorage.setItem("fontsize",newsize );
-            mytext.style.position = "absolute"
-        });
+        but2.addEventListener("click", sizeButton);
+        
         but3   = document.getElementById("decrease");
-        but3.addEventListener("click", function () {
-            mytext = document.getElementById("mytext");
-            current = window.getComputedStyle(mytext);
-            blah = current.fontSize;
-            unitsize = blah.match("[0-9]+");
-            unitname = blah.match("[a-zA-Z]+");
-            console.log("current fontsize: " + unitsize);
-            console.log("current fontname: " + unitname);
-            unitsize = parseInt(unitsize) - 1;
-            
-            newsize = unitsize+unitname;
-            mytext.style.fontSize = newsize;
-            localStorage.setItem("fontsize",newsize );
-            mytext.style.right= "0";
-            mytext.style.position = "absolute"
-            
-        })
+        but3.addEventListener("click",sizeButton);
 
 </script>
 
