@@ -1,14 +1,42 @@
+﻿<!DOCTYPE html>
 
-<input type="file" accept="audio/*" capture id="recorder">
-<p> this is version 2
-<audio id="player" controls></audio>
-<script>
-  var recorder = document.getElementById('recorder');
-  var player = document.getElementById('player');
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html, body {
+            height: 98%;
+        }
+        textarea {
+            display: flex;
+            
+            width:100%;
+            font-size:18px;
+        }
+        div {
+            width: 100%;
+            display:flex;
+            height:98%;
+            
+            border:groove;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+    <button id="clear" >CLEAR</button>
+    <div>
+    <textarea id="mytext"></textarea>
+    </div>    <script>
+        but = document.getElementById("clear")
+            but.addEventListener("click", function () {
+                console.log("called");
+                text = document.getElementById("mytext");
+                text.value = "";
+                console.log(text);
+            })
+</script>
+</body>
 
-  recorder.addEventListener('change', function(e) {
-    var file = e.target.files[0];
-    // Do something with the audio file.
-    player.src =  URL.createObjectURL(file);
-  });
-</script>
+</html>
