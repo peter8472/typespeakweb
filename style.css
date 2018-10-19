@@ -1,11 +1,12 @@
 ﻿
         html, body {
-            height: 98%;            
+            height: 97%;            
             position: relative;
 
         }
         textarea {
             display: flex;
+            width: 100%;
 	        
             top: 0;
             bottom: 0;
@@ -18,8 +19,11 @@
             position: relative;
             display:flex;
             height:100%;
+            width: 99%;
+            
             color: blue;
             background-color: brown;
             border-color: blueviolet;
             border-width: 7px;
+    
         }
