@@ -1,7 +1,6 @@
 ﻿
         html, body {
-            height: 75%;
-            
+            height: 98%;            
             position: relative;
 
         }
@@ -19,4 +18,8 @@
             position: relative;
             display:flex;
             height:100%;
+            color: blue;
+            background-color: brown;
+            border-color: blueviolet;
+            border-width: 7px;
         }
