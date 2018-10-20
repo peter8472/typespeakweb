@@ -30,6 +30,8 @@ artifacts:
      - index.html
      - style.css
      - voice.html
+     
+
     # - location
   #name: $(date +%Y-%m-%d)
   #discard-paths: yes

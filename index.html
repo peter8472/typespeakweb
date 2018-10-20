@@ -1,10 +1,13 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" manifest="cache.manifest">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel=stylesheet type="text/css" href="style.css"/>
+    <!--
+    <link rel="manifest" href="/manifest.json">
+    -->
     <title></title>
 </head>
 <body>
@@ -16,6 +19,12 @@
     <textarea id="mytext"></textarea>
     </div>
     <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js');
+            }
+        )
+        }
         function sizeButton(event) {
             
             mytext = document.getElementById("mytext");
