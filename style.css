@@ -15,15 +15,19 @@
             position: absolute;
            
         }
-        div {
+        .buttonbar {
+            position: relative;
+            display:flex;
+        }
+        .maindiv {
             position: relative;
             display:flex;
             height:100%;
             width: 99%;
             
             color: blue;
-            background-color: brown;
-            border-color: blueviolet;
+            background-color: rgb(101, 113, 151);
+            border-color: rgb(62, 29, 92);
             border-width: 7px;
     
         }
