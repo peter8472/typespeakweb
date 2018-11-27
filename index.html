@@ -1,32 +1,22 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link id="style" rel=stylesheet type="text/css" href="style.css"/>
-    <!--
-    <link rel="manifest" href="/manifest.json">
-    -->
+    <link rel=stylesheet type="text/css" href="style.css"/>
     <title></title>
 </head>
 <body>
-    <div class="buttonbar">
     <button id="clear" >CLEAR</button>
-    <button id = "decrease">-</button>
     <button id="increase">+</button>
-    <button id = "apply as style">add css</button>
-    </div>
-    <div id="tdiv" class="maindiv">
+    <button id = "decrease">-</button>
+    <a href="voice.html">test voice recording</a>
+    
+    <div id="tdiv">
     <textarea id="mytext"></textarea>
     </div>
     <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js');
-            }
-        )
-        }
         function sizeButton(event) {
             
             mytext = document.getElementById("mytext");
@@ -77,7 +67,7 @@
         
         but = document.getElementById("clear")
             but.addEventListener("click", function () {
-                console.log("clear called");
+                console.log("called");
                 text = document.getElementById("mytext");
                 text.value = "";
                 console.log(text);
@@ -87,22 +77,6 @@
         
         but3   = document.getElementById("decrease");
         but3.addEventListener("click",sizeButton);
-        document.getElementById("apply as style")
-        .addEventListener("click", function () {
-
-                
-                console.log("swap called");
-                oldstyle = document.getElementById("style")
-                d = document.createElement("link")
-                mytext = document.getElementById("mytext");
-                
-                d.rel = "stylesheet"
-                d.href="data:text/css;base64,"+btoa(mytext.value);
-                d.type="text/css"
-                d.id="dynamicstyle"
-                head = document.getElementsByTagName("head")[0];
-                head.appendChild(d);
-            });
 
 </script>
 
