@@ -1,33 +1,36 @@
 ﻿
-        html, body {
-            height: 97%;            
-            position: relative;
+html, body {
+    height: 97%;            
+    position: relative;
 
-        }
-        textarea {
-            display: flex;
-            width: 100%;
+}
+.dbutton {
+    font-size: 26px;
+}
+.outerbox {
+    display: flex;
+    width: 100%;
+    flex-direction:column;
 	        
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            position: absolute;
-           
-        }
-        .buttonbar {
-            position: relative;
-            display:flex;
-        }
-        .maindiv {
-            position: relative;
-            display:flex;
-            height:100%;
-            width: 99%;
-            
-            color: blue;
-            background-color: rgb(101, 113, 151);
-            border-color: rgb(62, 29, 92);
-            border-width: 7px;
-    
-        }
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+.chatdiv {
+    border: groove;
+    flex-grow: 15;
+    position: relative;
+    height: "100%";
+}
+.buttonbar {
+    position: relative;
+    display:flex;
+    flex-grow:1;
+}
+
+.player {
+    display:none
+}

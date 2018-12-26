@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -8,13 +7,13 @@
     <title></title>
 </head>
 <body>
-    <button id="clear" >CLEAR</button>
-    <button id="increase">+</button>
-    <button id = "decrease">-</button>
-    <a href="voice.html">test voice recording</a>
+    <button id="clear" class=button>CLEAR</button>
+    <button id="increase"class=button>+</button>
+    <button id = "decrease"class=button>-</button>
     
-    <div id="tdiv">
-    <textarea id="mytext"></textarea>
+    <div id="tdiv" class="chatdiv">    
+
+    <textarea id="mytext" ></textarea>
     </div>
     <script>
         function sizeButton(event) {
@@ -26,32 +25,19 @@
             blah = current.fontSize;
             unitsize = blah.match("[0-9]+");
             unitname = blah.match("[a-zA-Z]+");
-            //console.log("current fontsize: " + unitsize);
-            //console.log("current fontname: " + unitname);
-            //console.log(event.target.id)
             if (event.target.id === "increase")
                 unitsize = parseInt(unitsize) + 1;
             else if (event.target.id === "decrease")
                 unitsize = parseInt(unitsize) - 1;
             else
                 console.log("error on target id:" + event.target.id);
-                    
-
-
-
             newsize = unitsize+unitname;
-            //tdiv.removeChild(mytext);
-            //clone.style.fontSize = newsize;
-            //clone.style.position = "absolute"
-            //tdiv.appendChild(clone);
             localStorage.setItem("fontsize",newsize );
             mytext.style.fontSize = newsize;
             mytext.style.width="100%";
             mytext.style.height="100%";
             mytext.style.position = "absolute"
-            
-
-            
+	    tdiv.style.height="99%";            
             console.log(clone.offsetHeight);
 
         }
@@ -77,6 +63,16 @@
         
         but3   = document.getElementById("decrease");
         but3.addEventListener("click",sizeButton);
+	window.addEventListener("load", function(event) {
+            tdiv = document.getElementById("tdiv");
+    	    tdiv.style.height="99%";            
+	    mytext.style.width="100%";
+            mytext.style.height="100%";
+            mytext.style.position = "absolute"
+
+	});
+	    
+	
 
 </script>
 
