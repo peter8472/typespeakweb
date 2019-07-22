@@ -4,9 +4,7 @@ html, body {
     position: relative;
 
 }
-.dbutton {
-    font-size: 26px;
-}
+
 .outerbox {
     display: flex;
     width: 100%;
